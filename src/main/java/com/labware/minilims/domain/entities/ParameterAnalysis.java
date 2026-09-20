@@ -32,12 +32,12 @@ public class ParameterAnalysis implements Serializable {
     public ParameterAnalysis() {
     }
 
-    public ParameterAnalysis(Long id, String name, String unitOfMeasurement, Double maxValue, Double minValue) {
+    public ParameterAnalysis(Long id, String name, String unitOfMeasurement, Double minValue, Double maxValue) {
         this.id = id;
         this.name = name;
         this.unitOfMeasurement = unitOfMeasurement;
-        this.maxValue = maxValue;
         this.minValue = minValue;
+        this.maxValue = maxValue;
     }
 
     public Long getId() {

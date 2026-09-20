@@ -3,6 +3,7 @@ package com.labware.minilims.domain.entities;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +23,8 @@ public class AuditLog implements Serializable {
     private Long entityId;
     private String action;
     private String details;
+
+    @Column(name = "user_name")
     private String user;
     private LocalDateTime dateHour;
 

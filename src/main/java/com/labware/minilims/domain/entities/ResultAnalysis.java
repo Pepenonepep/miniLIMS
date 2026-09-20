@@ -49,7 +49,10 @@ public class ResultAnalysis implements Serializable {
     }
 
     public boolean validateConformity() {
-        if (this.parameterAnalysis != null && this.measuredValue != null) {
+        if (this.parameterAnalysis != null 
+                && this.parameterAnalysis.getMinValue() != null 
+                && this.parameterAnalysis.getMaxValue() != null 
+                && this.measuredValue != null) {
             this.according = this.measuredValue >= this.parameterAnalysis.getMinValue()
                     && this.measuredValue <= this.parameterAnalysis.getMaxValue();
         } else {

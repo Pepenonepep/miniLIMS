@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.labware.minilims.domain.enums.Status;
 
 import jakarta.persistence.CascadeType;
@@ -34,6 +35,7 @@ public class Specimen implements Serializable {
     @Enumerated(EnumType.STRING)
     private Status statusSpecimen;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "specimen", cascade = CascadeType.ALL)
     private List<ResultAnalysis> resultAnalysis = new ArrayList<>();
 

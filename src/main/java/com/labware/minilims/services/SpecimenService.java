@@ -10,6 +10,7 @@ import com.labware.minilims.domain.entities.AuditLog;
 import com.labware.minilims.domain.entities.ParameterAnalysis;
 import com.labware.minilims.domain.entities.ResultAnalysis;
 import com.labware.minilims.domain.entities.Specimen;
+import com.labware.minilims.domain.enums.Status;
 import com.labware.minilims.repositories.AuditLogRepository;
 import com.labware.minilims.repositories.ParameterAnalysisRepository;
 import com.labware.minilims.repositories.ResultAnalysisRepository;
@@ -37,6 +38,9 @@ public class SpecimenService {
     @Transactional
     public Specimen insert(Specimen specimen) {
         specimen.setId(null);
+        if (specimen.getStatusSpecimen() == null) {
+            specimen.setStatusSpecimen(Status.RECEIVED);
+        }
         specimen = specimenRepository.save(specimen);
 
         AuditLog log = new AuditLog(null, "Specimen", specimen.getId(), "CREATE",
